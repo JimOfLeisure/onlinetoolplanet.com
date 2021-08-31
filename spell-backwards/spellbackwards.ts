@@ -1,4 +1,44 @@
-import {reverse} from 'esrever';
+// import {reverse} from 'esrever';
+// import * as esrever from "esrever";
 
-let message:string = "hi";
-console.log(reverse(message));
+let message:string = "hi there";
+// console.log(esrever.reverse(message));
+
+let regexSymbolWithCombiningMarks = /(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g;
+let regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
+
+class SpellBackwards extends HTMLElement {
+    connectedCallback() {
+        console.log("connectedCallback");
+        // I don't recall if I'm supposed to call this here; I do in cia3
+        this.render();
+    }
+    render() {
+        console.log("render");
+        console.log(this.reverse(message));
+    }
+    // reverse() is copied verbatim from the MIT-Licensed https://github.com/mathiasbynens/esrever/blob/master/src/esrever.js#L20
+    // TODO: Add copyright notice & MIT license for this code in particular; perhaps break into its own file/module
+    reverse(string) {
+		// Step 1: deal with combining marks and astral symbols (surrogate pairs)
+		string = string
+			// Swap symbols with their combining marks so the combining marks go first
+			.replace(regexSymbolWithCombiningMarks, function($0, $1, $2) {
+				// Reverse the combining marks so they will end up in the same order
+				// later on (after another round of reversing)
+				return this.reverse($2) + $1;
+			})
+			// Swap high and low surrogates so the low surrogates go first
+			.replace(regexSurrogatePair, '$2$1');
+		// Step 2: reverse the code units in the string
+		var result = [];
+		var index = string.length;
+		while (index--) {
+			result.push(string.charAt(index));
+		}
+		return result.join('');
+	}
+
+}
+
+window.customElements.define('spell-backwards', SpellBackwards);
