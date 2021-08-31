@@ -4,7 +4,8 @@
   "description": "",
   "main": "spell-backwards.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc spellbackwards.ts; esbuild spellbackwards.js --bundle --outfile=bundle.js"
   },
   "author": "",
   "license": "ISC",
