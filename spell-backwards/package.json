@@ -5,7 +5,7 @@
   "main": "spell-backwards.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc spellbackwards.ts; esbuild spellbackwards.js --bundle --outfile=bundle.js"
+    "build": "npx tsc spellbackwards.ts; esbuild spellbackwards.js --bundle --outfile=bundle.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "esrever": "^0.2.0"
   },
   "devDependencies": {
-    "esbuild": "^0.12.24"
+    "esbuild": "^0.12.24",
+    "typescript": "^4.4.2"
   }
 }
