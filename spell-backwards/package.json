@@ -1,0 +1,17 @@
+{
+  "name": "spell-backwards",
+  "version": "1.0.0",
+  "description": "",
+  "main": "spell-backwards.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esrever": "^0.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.12.24"
+  }
+}
