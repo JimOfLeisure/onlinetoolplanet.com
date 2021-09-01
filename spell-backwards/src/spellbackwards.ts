@@ -1,4 +1,5 @@
-const regexSymbolWithCombiningMarks = /(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g;
+(async () => {
+	const regexSymbolWithCombiningMarks = /(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g;
 const regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
 
 class SpellBackwards extends HTMLElement {
@@ -38,6 +39,5 @@ class SpellBackwards extends HTMLElement {
 		return result.join('');
 	}
 }
-(async () => {
 	window.customElements.define('spell-backwards', SpellBackwards);
 })();
