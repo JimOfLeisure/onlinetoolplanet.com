@@ -8,6 +8,7 @@ class SpellBackwards extends HTMLElement {
 		document.addEventListener('DOMContentLoaded', () => {
 			this.input = document.getElementById("sb-input") as HTMLTextAreaElement;
 			this.output = document.getElementById("sb-output") as HTMLTextAreaElement;
+			this.input.addEventListener('input', () => { this.render(); });
 			this.render();
 		});
     }
