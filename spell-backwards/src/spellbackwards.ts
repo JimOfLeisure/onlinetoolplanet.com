@@ -1,22 +1,30 @@
-// import {reverse} from 'esrever';
-// import * as esrever from "esrever";
-
 let message:string = "hi there";
-// console.log(esrever.reverse(message));
 
-let regexSymbolWithCombiningMarks = /(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g;
-let regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
+const regexSymbolWithCombiningMarks = /(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g;
+const regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
 
 class SpellBackwards extends HTMLElement {
     connectedCallback() {
-        console.log("connectedCallback");
-        // I don't recall if I'm supposed to call this here; I do in cia3
-        this.render();
+		document.addEventListener('DOMContentLoaded', () => {
+			// this.foo();
+			this.input = document.getElementById("sb-input");
+			this.output = document.getElementById("sb-output");
+			console.log(this.input);
+			console.log(this.output);
+			console.log(this.input.innerText);
+			this.render();
+		});
     }
     render() {
-        console.log("render");
-        console.log(this.reverse(message));
+        // console.log("render");
+        // console.log(this.reverse(message));
+		// console.log(this.reverse(this.input.innerText));
+		// this.output.innerText = "um, hi?";
+		this.output.innerText = this.reverse(this.input.innerText);
     }
+	input: HTMLElement;
+	output: HTMLElement;
+
     // reverse() is copied verbatim from the MIT-Licensed https://github.com/mathiasbynens/esrever/blob/master/src/esrever.js#L20
     // TODO: Add copyright notice & MIT license for this code in particular; perhaps break into its own file/module
     reverse(string) {
@@ -38,7 +46,6 @@ class SpellBackwards extends HTMLElement {
 		}
 		return result.join('');
 	}
-
 }
 
 window.customElements.define('spell-backwards', SpellBackwards);
