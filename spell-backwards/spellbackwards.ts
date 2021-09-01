@@ -1,3 +1,4 @@
+// Since whole file is an iife, added --format=cjs to esbuild command to not put the iife in an iife
 (async () => {
 	const regexSymbolWithCombiningMarks = /(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g;
 const regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
