@@ -1,5 +1,3 @@
-let message:string = "hi there";
-
 const regexSymbolWithCombiningMarks = /(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g;
 const regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
 
