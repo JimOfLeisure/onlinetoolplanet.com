@@ -6,24 +6,16 @@ const regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
 class SpellBackwards extends HTMLElement {
     connectedCallback() {
 		document.addEventListener('DOMContentLoaded', () => {
-			// this.foo();
-			this.input = document.getElementById("sb-input");
-			this.output = document.getElementById("sb-output");
-			console.log(this.input);
-			console.log(this.output);
-			console.log(this.input.innerText);
+			this.input = document.getElementById("sb-input") as HTMLTextAreaElement;
+			this.output = document.getElementById("sb-output") as HTMLTextAreaElement;
 			this.render();
 		});
     }
     render() {
-        // console.log("render");
-        // console.log(this.reverse(message));
-		// console.log(this.reverse(this.input.innerText));
-		// this.output.innerText = "um, hi?";
-		this.output.innerText = this.reverse(this.input.innerText);
+		this.output.value = this.reverse(this.input.value);
     }
-	input: HTMLElement;
-	output: HTMLElement;
+	input: HTMLTextAreaElement;
+	output: HTMLTextAreaElement;
 
     // reverse() is copied verbatim from the MIT-Licensed https://github.com/mathiasbynens/esrever/blob/master/src/esrever.js#L20
     // TODO: Add copyright notice & MIT license for this code in particular; perhaps break into its own file/module
