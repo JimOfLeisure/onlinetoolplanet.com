@@ -5,7 +5,7 @@
   "main": "spell-backwards.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir dist || true; npx tsc --target es2015 src/spellbackwards.ts --outDir dist && esbuild dist/spellbackwards.js --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --outfile=dist/bundle.js"
+    "build": "mkdir dist || true; npx tsc --target es2020 src/spellbackwards.ts --outDir dist && esbuild dist/spellbackwards.js --bundle --minify --sourcemap --target=es2020 --outfile=dist/bundle.js"
   },
   "author": "",
   "license": "ISC",

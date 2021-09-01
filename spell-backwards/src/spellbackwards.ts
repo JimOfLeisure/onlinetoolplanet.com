@@ -30,13 +30,14 @@ class SpellBackwards extends HTMLElement {
 			// Swap high and low surrogates so the low surrogates go first
 			.replace(regexSurrogatePair, '$2$1');
 		// Step 2: reverse the code units in the string
-		var result = [];
-		var index = string.length;
+		let result = [];
+		let index = string.length;
 		while (index--) {
 			result.push(string.charAt(index));
 		}
 		return result.join('');
 	}
 }
-
-window.customElements.define('spell-backwards', SpellBackwards);
+(async () => {
+	window.customElements.define('spell-backwards', SpellBackwards);
+})();
