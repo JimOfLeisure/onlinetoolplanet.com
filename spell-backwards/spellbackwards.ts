@@ -1,3 +1,5 @@
+import {measureClicks, measureInputs} from './custom-gtag.js';
+
 // Since whole file is an iife, added --format=cjs to esbuild command to not put the iife in an iife
 (async () => {
 	const regexSymbolWithCombiningMarks = /(<%= allExceptCombiningMarks %>)(<%= combiningMarks %>+)/g;
@@ -40,5 +42,9 @@
 			return result.join('');
 		}
 	}
+	document.addEventListener('DOMContentLoaded', () => {
+		measureClicks('spell-backwards');
+		measureInputs('spell-backwards');
+	});
 	window.customElements.define('spell-backwards', SpellBackwards);
 })();
