@@ -1,3 +1,4 @@
+/// <reference types="gtag.js">
 declare const gtag: Gtag.Gtag;
 
 // Measure click engagement with app in global site tag analytics
