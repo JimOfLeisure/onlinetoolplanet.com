@@ -1,5 +1,4 @@
-// Function is better than any, but still want to figure out how to tell it it's @types/gtag.js
-declare const gtag: Function;
+declare const gtag: Gtag.Gtag;
 
 // Measure click engagement with app in global site tag analytics
 // Pass it the custom tag name, and it will send click events on those elements
