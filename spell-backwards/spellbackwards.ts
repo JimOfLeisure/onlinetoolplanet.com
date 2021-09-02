@@ -6,8 +6,8 @@
 	class SpellBackwards extends HTMLElement {
 		connectedCallback() {
 			document.addEventListener('DOMContentLoaded', () => {
-				this.input = document.getElementById("sb-input") as HTMLTextAreaElement;
-				this.output = document.getElementById("sb-output") as HTMLTextAreaElement;
+				this.input = this.querySelector('textarea:nth-child(1)') as HTMLTextAreaElement;
+				this.output = this.querySelector('textarea:nth-child(2)') as HTMLTextAreaElement;
 				this.input.addEventListener('input', () => { this.render(); });
 				this.render();
 			});
