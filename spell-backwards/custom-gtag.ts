@@ -1,5 +1,8 @@
 // import * as gtag from "gtag.js";
-import "gtag.js";
+// This sort-of works but leaves import statement in output
+// import "gtag.js";
+// Okay, taking the cheap way out until I can figure out how to reference @types/gtag.js here
+declare const gtag: any;
 
 // Measure click engagement with app in global site tag analytics
 // Pass it the custom tag name, and it will send click events on those elements
