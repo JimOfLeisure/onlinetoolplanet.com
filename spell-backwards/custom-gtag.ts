@@ -10,7 +10,7 @@ export function measureClicks(customTagName: string) {
             e.addEventListener('click',
                 (ee) => {
                     if (typeof gtag != 'undefined') {
-                        gtag('event', customTagName, { 'event_category': 'engagement', 'event_label': (ee.target as Element).tagName + '.' + (ee.target as Element).classList.item(0) } )
+                        gtag('event', customTagName, { 'event_category': 'engagement', 'event_label': 'click-' + (ee.target as Element).tagName + '.' + (ee.target as Element).classList.item(0) } )
                     }
                 }
             );
@@ -34,9 +34,8 @@ export function measureClicks(customTagName: string) {
             );
         });
     let pushChangeCount = () : void => {
-        console.log(inputChanges);
         if (typeof gtag != 'undefined') {
-            gtag('event', `${appName}-inputs`, { 'event_category': 'engagement', 'event_label': 'input-count', value: inputChanges } )
+            gtag('event', appName, { 'event_category': 'engagement', 'event_label': 'input-count', value: inputChanges } )
         }
         inputChanges = 0;
         inputTimerId = null;
