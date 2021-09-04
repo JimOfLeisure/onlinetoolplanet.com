@@ -1,10 +1,10 @@
-li {
+div#app > li {
     list-style: none;
 }
 
-.error {
+div.error {
     color: red;
 }
-.impossible {
+div.impossible {
     opacity: 25%;
 }
