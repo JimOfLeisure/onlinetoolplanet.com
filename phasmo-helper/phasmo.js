@@ -8,70 +8,89 @@
             name: 'EMF Level 5'
         },
         {
+            name: 'Freezing Temps'
+        },
+        {
             name: 'Spirit Box'
-        },
-        {
-            name: 'Fingerprints'
-        },
-        {
-            name: 'Ghost Orb'
         },
         {
             name: 'Ghost Writing'
         },
         {
-            name: 'Freezing Temps'
+            name: 'Ghost Orb'
+        },
+        {
+            name: 'Fingerprints'
+        },
+        {
+            name: 'DOTS'
         },
     ]
 
     const ghostTypes = [
         {
             name: 'Spirit',
-            evidence: [1, 2, 4]
+            evidence: [0, 2, 3]
         },
         {
             name: 'Wraith',
-            evidence: [2, 5, 1]
+            evidence: [0, 2, 6]
         },
         {
             name: 'Phantom',
-            evidence: [0, 3, 5]
+            evidence: [2, 5, 6]
         },
         {
             name: 'Poltergeist',
-            evidence: [1, 2, 3]
+            evidence: [2, 3, 5]
         },
         {
             name: 'Banshee',
-            evidence: [0, 2, 5]
+            evidence: [4, 5, 6]
         },
         {
             name: 'Jinn',
-            evidence: [1, 3, 0]
+            evidence: [0, 1, 5]
         },
         {
             name: 'Mare',
-            evidence: [1, 3, 5]
+            evidence: [2, 3, 4]
         },
         {
             name: 'Revenant',
-            evidence: [0, 2, 4]
+            evidence: [1, 3, 4]
         },
         {
             name: 'Shade',
-            evidence: [0, 3, 4]
+            evidence: [0, 1, 3]
         },
         {
             name: 'Demon',
-            evidence: [1, 4, 5]
+            evidence: [1, 3, 5]
         },
         {
             name: 'Yurei',
-            evidence: [3, 4, 5]
+            evidence: [1, 4, 6]
         },
         {
             name: 'Oni',
-            evidence: [0, 1, 4]
+            evidence: [0, 1, 6]
+        },
+        {
+            name: 'Yokai',
+            evidence: [2, 4, 6]
+        },
+        {
+            name: 'Hantu',
+            evidence: [1, 4, 5]
+        },
+        {
+            name: 'Goryo',
+            evidence: [0,5,6]
+        },
+        {
+            name: 'Myling',
+            evidence: [0,3,5]
         },
     ]
 
