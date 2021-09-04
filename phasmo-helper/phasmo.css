@@ -1,4 +1,4 @@
-div#app > li {
+#phasmo > div > ul > li {
     list-style: none;
 }
 
