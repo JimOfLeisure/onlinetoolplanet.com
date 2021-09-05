@@ -110,13 +110,19 @@
         evidenceDiv.appendChild(evidenceList);
 
         evidence.forEach(e => {
+            const idName = e.name.toLowerCase().replace(/ /, '-');
             e.possible = true;
             e.checkbox = document.createElement('input');
             e.checkbox.type = 'checkbox';
+            e.checkbox.id = idName;
             e.item = document.createElement('li');
             e.item.appendChild(e.checkbox);
-            const myLabel = document.createTextNode(e.name);
+            // const myLabel = document.createTextNode(e.name);
+            const myLabel = document.createElement('label');
+            myLabel.innerText = e.name;
+            myLabel.htmlFor = idName;
             e.item.appendChild(myLabel)
+            e.item.addEventListener('click', () => { e.checkbox.cl})
             evidenceList.appendChild(e.item);
         })
 
