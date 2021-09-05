@@ -1,8 +1,11 @@
 #phasmo > div > ul > li {
     list-style: none;
 }
-#phasmo > div > ul > li > label:hover {
-    background-color: lightgray;
+/* This media query skips hover on touch devices */
+@media (hover: hover) {
+    #phasmo > div > ul > li > label:hover {
+        background-color: lightgray;
+    }
 }
 
 #phasmo > div > div {
