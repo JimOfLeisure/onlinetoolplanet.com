@@ -30,82 +30,66 @@
     const ghostTypes = [
         {
             name: 'Spirit',
-            // evidence: [0, 2, 3]
             evidence: [0, 1, 4]
         },
         {
             name: 'Wraith',
-            // evidence: [0, 2, 6]
             evidence: [0, 1, 6]
         },
         {
             name: 'Phantom',
-            // evidence: [2, 5, 6]
             evidence: [1, 2, 6]
         },
         {
             name: 'Poltergeist',
-            // evidence: [2, 3, 5]
             evidence: [1, 2, 4]
         },
         {
             name: 'Banshee',
-            // evidence: [4, 5, 6]
             evidence: [2, 3, 6]
         },
         {
             name: 'Jinn',
-            // evidence: [0, 1, 5]
             evidence: [0, 5, 2]
         },
         {
             name: 'Mare',
-            // evidence: [2, 3, 4]
             evidence: [1, 4, 3]
         },
         {
             name: 'Revenant',
-            // evidence: [1, 3, 4]
             evidence: [5, 4, 3]
         },
         {
             name: 'Shade',
-            // evidence: [0, 1, 3]
             evidence: [0, 5, 4]
         },
         {
             name: 'Demon',
-            // evidence: [1, 3, 5]
             evidence: [5, 4, 2]
         },
         {
             name: 'Yurei',
-            // evidence: [1, 4, 6]
             evidence: [5, 3, 6]
         },
         {
             name: 'Oni',
-            // evidence: [0, 1, 6]
             evidence: [0, 5, 6]
         },
         {
             name: 'Hantu',
-            // evidence: [1, 4, 5]
             evidence: [5, 3, 2]
         },
         {
             name: 'Yokai',
-            // evidence: [2, 4, 6]
             evidence: [1, 3, 6]
         },
         {
             name: 'Goryo',
-            // evidence: [0,5,6]
             evidence: [0,2,6]
         },
         {
             name: 'Myling',
-            // evidence: [0,3,5]
             evidence: [0,4,2]
         },
     ]
