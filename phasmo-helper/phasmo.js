@@ -94,36 +94,41 @@
         },
     ]
 
-    const evidenceDiv = document.createElement('div');
-    const ghostsDiv = document.createElement('div');
+    let app;
+    let evidenceDiv;
+    let ghostsDiv;
 
     function phasmoInit() {
-        ghostTypes.forEach(e => {
+        evidenceDiv = document.querySelector('div#phasmo > div:nth-of-type(1)') || document.createElement('div');
+        ghostsDiv = document.querySelector('div#phasmo > div:nth-of-type(2)') || document.createElement('div');
+        ghostTypes.forEach((e, i) => {
             e.possible = true;
-            e.div = document.createElement('div');
-            const myLabel = document.createTextNode(e.name);
-            e.div.appendChild(myLabel)
-            ghostsDiv.appendChild(e.div);
+            e.div = ghostsDiv.querySelector(`div:nth-of-type(${i+1})`)
+            if (e.div === null) {
+                e.div = document.createElement('div');
+                const myLabel = document.createTextNode(e.name);
+                e.div.appendChild(myLabel)
+                ghostsDiv.appendChild(e.div);
+            }
         })
+        console.log(ghostsDiv);
+        const evidenceList = evidenceDiv.querySelector('ul') || document.createElement('ul');
+        if (!evidenceList.isConnected) { evidenceDiv.appendChild(evidenceList); };
 
-        const evidenceList = document.createElement('ul');
-        evidenceDiv.appendChild(evidenceList);
-
-        evidence.forEach(e => {
+        evidence.forEach((e, i) => {
             const idName = e.name.toLowerCase().replace(/ /, '-');
             e.possible = true;
-            e.checkbox = document.createElement('input');
+            e.item = evidenceList.querySelector(`li:nth-of-type(${i+1})`) || document.createElement('li');
+            e.checkbox = e.item.querySelector('input') || document.createElement('input');
             e.checkbox.type = 'checkbox';
             e.checkbox.id = idName;
-            e.item = document.createElement('li');
-            e.item.appendChild(e.checkbox);
-            // const myLabel = document.createTextNode(e.name);
-            const myLabel = document.createElement('label');
+            if (!e.checkbox.isConnected) { e.item.appendChild(e.checkbox); };
+            const myLabel = e.item.querySelector('label') || document.createElement('label');
             myLabel.innerText = e.name;
             myLabel.htmlFor = idName;
-            e.item.appendChild(myLabel)
+            if (!myLabel.isConnected) { e.item.appendChild(myLabel); };
             e.item.addEventListener('click', () => { e.checkbox.cl})
-            evidenceList.appendChild(e.item);
+            if (!e.item.isConnected) { evidenceList.appendChild(e.item); };
         })
 
         evidenceDiv.addEventListener('click', phasmoUpdate);
@@ -138,9 +143,9 @@
         evidence.forEach(e => {
             e.item.classList.remove(errorClass)
         });    if (checkCount == 0) {
-            // clear all formsts
+            // clear all formats
             ghostTypes.forEach(e => e.div.classList.remove(impossibleClass));
-            evidence.forEach(e => e.item.classList.remove(impossibleClass));
+            // evidence.forEach(e => e.item.classList.remove(impossibleClass));
         } else if (checkCount > maxEvidence) {
             console.error('input error')
             ghostTypes.forEach(e => {
@@ -173,11 +178,10 @@
         }
     }
 
-    phasmoInit();
-
     document.addEventListener("DOMContentLoaded", function() {
-        const app = document.getElementById('phasmo');
-        app.appendChild(evidenceDiv);
-        app.appendChild(ghostsDiv);
+        app = document.getElementById('phasmo');
+        phasmoInit();
+        if (!evidenceDiv.isConnnected) { app.appendChild(evidenceDiv) };
+        if (!ghostsDiv.isConnnected) { app.appendChild(ghostsDiv) };
     });
 })();
