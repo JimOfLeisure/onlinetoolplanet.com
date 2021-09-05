@@ -6,12 +6,12 @@ const regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
 class SpellBackwards extends HTMLElement {
 	connectedCallback() {
 		document.addEventListener('DOMContentLoaded', () => {
-            this.input = this.querySelector('div:nth-of-type(1) > textarea') as HTMLTextAreaElement;
-            this.output = this.querySelector('div:nth-of-type(2) > textarea') as HTMLTextAreaElement;
-            this.clearButton = this.querySelector('div:nth-of-type(1) > button') as HTMLButtonElement;
-            this.copyButton = this.querySelector('div:nth-of-type(2) > button') as HTMLButtonElement;
+            this.input = this.querySelector('textarea:nth-of-type(1)') as HTMLTextAreaElement;
+            this.output = this.querySelector('textarea:nth-of-type(2)') as HTMLTextAreaElement;
+            this.clearButton = this.querySelector('button:nth-of-type(1)') as HTMLButtonElement;
+            this.copyButton = this.querySelector('button:nth-of-type(2)') as HTMLButtonElement;
 			this.input.addEventListener('input', () => { this.render(); });
-			this.clearButton.addEventListener('click', () => { this.input.value = ''; });
+			this.clearButton.addEventListener('click', () => { this.input.value = ''; this.render() });
 			this.copyButton.addEventListener('click', () => { navigator.clipboard.writeText(this.output.value); });
 			this.render();
 		});
