@@ -6,9 +6,13 @@ const regexSurrogatePair = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
 class SpellBackwards extends HTMLElement {
 	connectedCallback() {
 		document.addEventListener('DOMContentLoaded', () => {
-			this.input = this.querySelector('textarea:nth-of-type(1)') as HTMLTextAreaElement;
-			this.output = this.querySelector('textarea:nth-of-type(2)') as HTMLTextAreaElement;
+            this.input = this.querySelector('div:nth-of-type(1) > textarea') as HTMLTextAreaElement;
+            this.output = this.querySelector('div:nth-of-type(2) > textarea') as HTMLTextAreaElement;
+            this.clearButton = this.querySelector('div:nth-of-type(1) > button') as HTMLButtonElement;
+            this.copyButton = this.querySelector('div:nth-of-type(2) > button') as HTMLButtonElement;
 			this.input.addEventListener('input', () => { this.render(); });
+			this.clearButton.addEventListener('click', () => { this.input.value = ''; });
+			this.copyButton.addEventListener('click', () => { navigator.clipboard.writeText(this.output.value); });
 			this.render();
 		});
 	}
@@ -17,6 +21,8 @@ class SpellBackwards extends HTMLElement {
 	}
 	input: HTMLTextAreaElement;
 	output: HTMLTextAreaElement;
+	clearButton: HTMLButtonElement;
+	copyButton: HTMLButtonElement;
 
 	// reverse() is copied verbatim from the MIT-Licensed https://github.com/mathiasbynens/esrever/blob/master/src/esrever.js#L20
 	// TODO: Add copyright notice & MIT license for this code in particular; perhaps break into its own file/module
