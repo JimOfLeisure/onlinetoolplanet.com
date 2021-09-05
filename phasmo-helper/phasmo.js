@@ -23,7 +23,7 @@
             name: 'Freezing Temps'
         },
         {
-            name: 'DOTS'
+            name: 'D.O.T.S. Projector'
         },
     ]
 
