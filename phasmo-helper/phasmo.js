@@ -111,7 +111,7 @@
                 ghostsDiv.appendChild(e.div);
             }
         })
-        console.log(ghostsDiv);
+
         const evidenceList = evidenceDiv.querySelector('ul') || document.createElement('ul');
         if (!evidenceList.isConnected) { evidenceDiv.appendChild(evidenceList); };
 
@@ -145,7 +145,6 @@
         });    if (checkCount == 0) {
             // clear all formats
             ghostTypes.forEach(e => e.div.classList.remove(impossibleClass));
-            // evidence.forEach(e => e.item.classList.remove(impossibleClass));
         } else if (checkCount > maxEvidence) {
             console.error('input error')
             ghostTypes.forEach(e => {
