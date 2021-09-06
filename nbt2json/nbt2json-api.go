@@ -14,11 +14,14 @@ import (
 
 const bindAddress string = "0.0.0.0"
 const bindPort string = "8888"
-const defaultOrigin string = "www.onlinetoolplanet.com"
+const defaultOrigin string = "https://www.onlinetoolplanet.com"
 
 // constant
 var origins = []string{
-	"127.0.0.1:8888",
+	"http://127.0.0.1:4000",
+	"http://127.0.0.1:8000",
+	"http://127.0.0.1:8080",
+	"http://127.0.0.1:8888",
 }
 
 func originInOrigins(origin string) bool {
@@ -27,6 +30,7 @@ func originInOrigins(origin string) bool {
 			return true
 		}
 	}
+	fmt.Println(origin)
 	return false
 }
 
@@ -41,7 +45,6 @@ func setHeaders(handler http.Handler) http.Handler {
 		} else {
 			w.Header().Set("Access-Control-Allow-Origin", defaultOrigin)
 		}
-		w.Header().Set("Access-Control-Allow-Origin", "www.onlinetoolplanet.com")
 		w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 		w.Header().Set("Access-Control-Allow-Headers",
 			"Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
@@ -109,5 +112,5 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/v1/nbt2json", nbt2jsonHandler)
 	mux.HandleFunc("/api/v1/json2nbt", json2NbtHandler)
-	log.Fatal(http.ListenAndServe(bindAddress+":"+bindPort, mux))
+	log.Fatal(http.ListenAndServe(bindAddress+":"+bindPort, setHeaders(mux)))
 }
