@@ -2,8 +2,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/cpuguy83/go-md2man/v2 v2.0.0-20190314233015-f79a8a8ca69d/go.mod h1:maD7wRr/U5Z6m/iR4s+kqSMx2CaBsrgA7czyZG/E6dU=
 github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32 h1:Mn26/9ZMNWSw9C9ERFA1PUxfmGpolnw2v0bKOREu5ew=
 github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32/go.mod h1:GIjDIg/heH5DOkXY3YJ/wNhfHsQHoXGjl8G8amsYQ1I=
-github.com/midnightfreddie/nbt2json v0.4.1-0.20210906202121-642806355998 h1:dVgp5QT2idCQBQNtrcEGG2AqChUMU9KSVVEnhOfYSGc=
-github.com/midnightfreddie/nbt2json v0.4.1-0.20210906202121-642806355998/go.mod h1:pnkH7Zy7BUhQX7goZ8w+xj7C0ztElF4XA5oDZjgNOr4=
+github.com/midnightfreddie/nbt2json v0.4.1 h1:zt+mfFp9MqGj6UxoYgbrNygvwgfuVF3sfbbsM3tA4Wo=
+github.com/midnightfreddie/nbt2json v0.4.1/go.mod h1:pnkH7Zy7BUhQX7goZ8w+xj7C0ztElF4XA5oDZjgNOr4=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=
