@@ -1,0 +1,108 @@
+{
+    "nbt": [
+      {
+        "tagType": 10,
+        "name": "",
+        "value": [
+          {
+            "tagType": 1,
+            "name": "TestByte",
+            "value": 127
+          },
+          {
+            "tagType": 2,
+            "name": "TestShort",
+            "value": 32767
+          },
+          {
+            "tagType": 3,
+            "name": "TestInt",
+            "value": 2147483647
+          },
+          {
+              "tagType": 4,
+              "name": "",
+              "value": {
+                  "valueLeast": 4294967295,
+                  "valueMost": 2147483647
+              }
+          },
+          {
+              "tagType": 4,
+              "name": "TestLongAsString",
+              "value": "9223372036854775807"
+            },
+            {
+            "tagType": 5,
+            "name": "TestFloat",
+            "value": 1.234567e+38
+          },
+          {
+            "tagType": 6,
+            "name": "TestDouble",
+            "value": 1.23456789012345e+307
+          },
+          {
+              "tagType": 7,
+              "name": "TestByteArray",
+              "value": [
+                  0,
+                  -128,
+                  127
+              ]
+          },
+          {
+            "tagType": 8,
+            "name": "TestString",
+            "value": "This is a test string"
+          },
+                  {
+                      "tagType": 9,
+                      "name": "TestList",
+                          "value": {
+                              "tagListType": 3,
+                              "list": [
+                                  0,
+                                  2147483647,
+                                  -2147483648
+                              ]
+                          }
+                  },
+                  {
+                      "tagType": 11,
+                      "name": "TestIntArray",
+                      "value": [
+                          0,
+                          2147483647,
+                          -2147483648
+                      ]
+                  },
+                  {
+                      "tagType": 12,
+                      "name": "TestLongArray",
+                      "value": [
+                          {
+                              "valueLeast": 0,
+                              "valueMost": 0
+                          },
+                          {
+                              "valueLeast": 4294967295,
+                              "valueMost": 2147483647
+                          },
+                          "9223372036854775807",
+                          {
+                              "valueLeast": 0,
+                              "valueMost": -2147483648
+                          }
+                      ]
+                  },
+          {
+            "tagType": 0,
+            "name": "",
+            "value": null
+          }
+        ]
+      }
+    ]
+  }
+  

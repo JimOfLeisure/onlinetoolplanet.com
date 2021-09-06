@@ -1,10 +1,13 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/midnightfreddie/nbt2json"
 )
@@ -22,6 +25,7 @@ func setHeaders(handler http.Handler) http.Handler {
 	})
 }
 
+// TODO: eliminate code duplcation
 func nbt2jsonHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "POST":
@@ -37,6 +41,35 @@ func nbt2jsonHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		fmt.Fprintln(w, string(outData[:]))
+		return
+	case "HEAD":
+		return
+	default:
+		http.Error(w, "Method "+r.Method+" not supported", 405)
+		return
+	}
+}
+
+// TODO: eliminate code duplcation
+func json2NbtHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "POST":
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			http.Error(w, "Error reading body: "+err.Error(), 400)
+			return
+		}
+		var outData []byte
+		outData, err = nbt2json.Json2Nbt(body)
+		if err != nil {
+			http.Error(w, "Error decoding nbt: "+err.Error(), 400)
+			return
+		}
+		w.Header().Set("Content-Disposition", "attachment; filename=json2nbt.bin")
+		w.Header().Set("Content-Type", "octet-stream")
+		w.Header().Set("Content-Length", strconv.FormatInt((int64)(len(outData)), 10))
+		io.Copy(w, bytes.NewBuffer(outData))
+		return
 	case "HEAD":
 		return
 	default:
@@ -50,6 +83,7 @@ func main() {
 	nbt2json.UseBedrockEncoding()
 	nbt2json.UseLongAsString()
 	mux := http.NewServeMux()
-	http.Handle("/api/v1/nbt2json", setHeaders(mux))
-	log.Fatal(http.ListenAndServe(bindAddress+":"+bindPort, nil))
+	mux.HandleFunc("/api/v1/nbt2json", nbt2jsonHandler)
+	mux.HandleFunc("/api/v1/json2nbt", json2NbtHandler)
+	log.Fatal(http.ListenAndServe(bindAddress+":"+bindPort, mux))
 }
