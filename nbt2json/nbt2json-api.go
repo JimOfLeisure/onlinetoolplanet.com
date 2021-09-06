@@ -14,9 +14,33 @@ import (
 
 const bindAddress string = "0.0.0.0"
 const bindPort string = "8888"
+const defaultOrigin string = "www.onlinetoolplanet.com"
+
+// constant
+var origins = []string{
+	"127.0.0.1:8888",
+}
+
+func originInOrigins(origin string) bool {
+	for _, s := range origins {
+		if s == origin {
+			return true
+		}
+	}
+	return false
+}
 
 func setHeaders(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if origin := r.Header.Get("Origin"); origin != "" {
+			if originInOrigins(origin) {
+				w.Header().Set("Access-Control-Allow-Origin", origin)
+			} else {
+				w.Header().Set("Access-Control-Allow-Origin", defaultOrigin)
+			}
+		} else {
+			w.Header().Set("Access-Control-Allow-Origin", defaultOrigin)
+		}
 		w.Header().Set("Access-Control-Allow-Origin", "www.onlinetoolplanet.com")
 		w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 		w.Header().Set("Access-Control-Allow-Headers",
