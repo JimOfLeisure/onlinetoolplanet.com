@@ -19,6 +19,8 @@ const defaultOrigin string = "https://www.onlinetoolplanet.com"
 // constant
 var origins = []string{
 	"http://127.0.0.1:4000",
+	"http://127.0.0.1:2015",
+	"http://localhost:2015",
 	"http://127.0.0.1:8000",
 	"http://127.0.0.1:8080",
 	"http://127.0.0.1:8888",
