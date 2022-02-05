@@ -92,6 +92,22 @@
             name: 'Myling',
             evidence: [0,4,2]
         },
+        {
+            name: 'Onryo',
+            evidence: [1,3,5]
+        },
+        {
+            name: 'The Twins',
+            evidence: [0,1,5]
+        },
+        {
+            name: 'Obake',
+            evidence: [0,2,3]
+        },
+        {
+            name: 'Raiju',
+            evidence: [0,3,6]
+        },
     ]
 
     let app;
