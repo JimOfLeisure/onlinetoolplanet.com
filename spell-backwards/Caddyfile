@@ -1,4 +1,4 @@
 http://localhost:2015
 
-root .
+root dist/
 file_server
