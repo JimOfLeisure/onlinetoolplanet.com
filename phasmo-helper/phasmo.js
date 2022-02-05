@@ -108,6 +108,10 @@
             name: 'Raiju',
             evidence: [0,3,6]
         },
+        {
+            name: 'The Mimic',
+            evidence: [1,2,5]
+        },
     ]
 
     let app;
