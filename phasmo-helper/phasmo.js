@@ -116,14 +116,11 @@
 
     class PhasmoHelpoer extends HTMLElement {
             connectedCallback() {
-            // TODO: apparently failing to find query result does not trigger 'or' alternative
             this.evidenceDiv = this.querySelector('div:nth-of-type(1)') || document.createElement('div');
             this.ghostsDiv = this.querySelector('div:nth-of-type(2)') || document.createElement('div');
 
-            // FIXME: this code is from before WebComponent refactor, need to ensure code can handle
-            //  whether or not interior elements are already defined.
-            // if (!this.evidenceDiv.isConnnected) { app.appendChild(this.evidenceDiv) };
-            // if (!this.ghostsDiv.isConnnected) { app.appendChild(this.ghostsDiv) };
+            if (!this.evidenceDiv.isConnnected) { this.appendChild(this.evidenceDiv) };
+            if (!this.ghostsDiv.isConnnected) { this.appendChild(this.ghostsDiv) };
 
             ghostTypes.forEach((e, i) => {
                 e.possible = true;
@@ -150,7 +147,7 @@
                 const myLabel = e.item.querySelector('label') || document.createElement('label');
                 myLabel.innerText = e.name;
                 myLabel.htmlFor = idName;
-                console.log(idName, myLabel);
+                console.log(idName, myLabel, e.item);
                 if (!myLabel.isConnected) { e.item.appendChild(myLabel); };
                 if (!e.item.isConnected) { evidenceList.appendChild(e.item); };
             })
