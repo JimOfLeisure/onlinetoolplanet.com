@@ -115,13 +115,10 @@
     ]
 
     class PhasmoHelpoer extends HTMLElement {
-        evidenceDiv;
-        ghostsDiv;
             connectedCallback() {
-            console.log('phasmo-helper connectedCallback');
             // TODO: apparently failing to find query result does not trigger 'or' alternative
-            this.evidenceDiv = document.querySelector('div:nth-of-type(1)') || document.createElement('div');
-            this.ghostsDiv = document.querySelector('div:nth-of-type(2)') || document.createElement('div');
+            this.evidenceDiv = this.querySelector('div:nth-of-type(1)') || document.createElement('div');
+            this.ghostsDiv = this.querySelector('div:nth-of-type(2)') || document.createElement('div');
 
             // FIXME: this code is from before WebComponent refactor, need to ensure code can handle
             //  whether or not interior elements are already defined.
@@ -153,15 +150,15 @@
                 const myLabel = e.item.querySelector('label') || document.createElement('label');
                 myLabel.innerText = e.name;
                 myLabel.htmlFor = idName;
+                console.log(idName, myLabel);
                 if (!myLabel.isConnected) { e.item.appendChild(myLabel); };
-                e.item.addEventListener('click', () => { e.checkbox.cl})
                 if (!e.item.isConnected) { evidenceList.appendChild(e.item); };
             })
     
-            this.evidenceDiv.addEventListener('click', this.phasmoUpdate);    
+            this.evidenceDiv.addEventListener('click', this.render);    
         }
 
-        phasmoUpdate(e) {
+        render(e) {
             const checkCount = evidence.reduce((a, e) => e.checkbox.checked ? a+1 : a, 0);
             ghostTypes.forEach(e => {
                 e.div.classList.remove(errorClass)

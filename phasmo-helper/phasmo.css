@@ -1,14 +1,14 @@
-#phasmo > div > ul > li {
+phasmo-helper > div > ul > li {
     list-style: none;
 }
 /* This media query skips hover on touch devices */
 @media (hover: hover) {
-    #phasmo > div > ul > li > label:hover {
+    phasmo-helper > div > ul > li > label:hover {
         background-color: lightgray;
     }
 }
 
-#phasmo > div > div {
+phasmo-helper > div > div {
     display: inline-block;
     padding-right: 1em;
 }
