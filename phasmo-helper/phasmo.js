@@ -147,7 +147,6 @@
                 const myLabel = e.item.querySelector('label') || document.createElement('label');
                 myLabel.innerText = e.name;
                 myLabel.htmlFor = idName;
-                console.log(idName, myLabel, e.item);
                 if (!myLabel.isConnected) { e.item.appendChild(myLabel); };
                 if (!e.item.isConnected) { evidenceList.appendChild(e.item); };
             })
